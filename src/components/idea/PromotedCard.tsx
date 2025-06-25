@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 // Using BiRefresh for the "Remove" icon, suggesting you can refresh/remove the ad.
-import { BiRefresh, BiX } from 'react-icons/bi';
+import {  BiX } from 'react-icons/bi';
 
 // Define the props for our promotional card
 export interface PromotedCardProps {

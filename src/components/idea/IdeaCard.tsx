@@ -23,8 +23,7 @@ export const IdeaCard: React.FC<IdeaCardProps> = ({
   tags,
   imageUrl,
   stats,
-  date,
-  readTime,
+  
 }) => {
 
   // Bookmark state

@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { useParams } from 'react-router-dom';
 import { mockFeedItems } from '../lib/mockData';
 import { BiLogoTwitter, BiLogoGithub, BiLink } from 'react-icons/bi';
