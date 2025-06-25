@@ -19,8 +19,6 @@ export const IdeaCard: React.FC<IdeaCardProps> = ({
   tags,
   imageUrl,
   stats,
-  date,
-  readTime,
 }) => {
   return (
     // We add a max-width to prevent the card from becoming too wide

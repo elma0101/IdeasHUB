@@ -8,12 +8,7 @@ interface IdeaFeedProps {
 }
 
 export const IdeaFeed: React.FC<IdeaFeedProps> = ({ items }) => {
-  const handleRemovePromo = (index: number) => {
-    // In a real app, you would update the state to remove the item.
-    // For now, we'll just log it to the console.
-    console.log(`Remove promo card at index: ${index}`);
-    alert('Promo card removed! (Check console). In a real app, this would disappear.');
-  };
+   
 
   return (
      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
