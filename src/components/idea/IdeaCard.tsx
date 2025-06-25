@@ -1,8 +1,10 @@
-
-import { BiLike, BiComment, BiGitRepoForked, BiBookmark } from 'react-icons/bi';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { BiLike, BiComment, BiGitRepoForked, BiBookmark, BiSolidBookmark, BiSolidLike } from 'react-icons/bi';
 
 
 export interface IdeaCardProps {
+  id: string;
   author: { name: string; level: number; avatarUrl: string };
   title: string;
   description: string;
@@ -14,16 +16,39 @@ export interface IdeaCardProps {
 }
 
 export const IdeaCard: React.FC<IdeaCardProps> = ({
+  id,
   author,
   title,
   description,
   tags,
   imageUrl,
   stats,
+  date,
+  readTime,
 }) => {
+
+  // Bookmark state
+  const [isBookmarked, setIsBookmarked] = useState(false);
+  const handleBookmark = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsBookmarked(!isBookmarked);
+  };
+
+  // Like state
+  const [isLiked, setIsLiked] = useState(false);
+  const [likeCount, setLikeCount] = useState(stats.likes);
+  const handleLike = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsLiked(!isLiked);
+    setLikeCount(isLiked ? likeCount - 1 : likeCount + 1);
+  };
+
   return (
+
     // We add a max-width to prevent the card from becoming too wide
-    <div className="bg-card rounded-lg p-5 flex flex-col gap-4 text-white hover:ring-2 hover:ring-primary/50 transition-all duration-300 max-w-md mx-auto">
+    <Link to={`/project/${id}`} className="bg-card rounded-lg p-5 flex flex-col gap-4 text-white hover:ring-2 hover:ring-primary/50 transition-all duration-300 max-w-md mx-auto">
       
       {/* Card Header: Author Info */}
       <div className="flex items-center gap-3">
@@ -60,7 +85,14 @@ export const IdeaCard: React.FC<IdeaCardProps> = ({
       <div className="flex justify-between items-center text-secondary text-sm mt-2">
         {/* Left side: Stats */}
         <div className="flex items-center gap-5">
-          <div className="flex items-center gap-1.5 cursor-pointer hover:text-white"><BiLike size={20} /><span>{stats.likes}</span></div>
+          <button onClick={handleLike} className="flex items-center gap-1.5 cursor-pointer hover:text-white transition-colors">
+            {isLiked ? (
+              <BiSolidLike size={20} className="text-red-500" />
+            ) : (
+              <BiLike size={20} />
+            )}
+            <span className={isLiked ? "text-red-500" : ""}>{likeCount}</span>
+          </button>
           <div className="flex items-center gap-1.5 cursor-pointer hover:text-white"><BiComment size={20} /><span>{stats.comments}</span></div>
           <div className="flex items-center gap-1.5 cursor-pointer hover:text-white"><BiGitRepoForked size={20} /><span>{stats.forks}</span></div>
         </div>
@@ -68,9 +100,15 @@ export const IdeaCard: React.FC<IdeaCardProps> = ({
         {/* --- FIX --- THIS SECTION WAS MISSING --- */}
         {/* Right side: Date, Read Time, and Bookmark */}
         <div className="flex items-center gap-4">
-          <BiBookmark size={20} className="cursor-pointer hover:text-white" />
+        <button onClick={handleBookmark} className="cursor-pointer hover:text-white transition-colors">
+            {isBookmarked ? (
+              <BiSolidBookmark size={20} className="text-primary" /> // Show filled icon when bookmarked
+            ) : (
+              <BiBookmark size={20} /> // Show outline icon when not bookmarked
+            )}
+          </button>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };

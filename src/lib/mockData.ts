@@ -29,7 +29,7 @@ const ideaItems: FeedItem[] = [
     {
     type: 'idea',
     data:{
-       
+        id: "1",
         title: "AI powered recipe generator",
         author: {name: "CreativeCoder",level: 8, avatarUrl: "https://i.pravatar.cc/150?u=creativecoder"},
         description: 'An app that suggests recipes based on ingredients you have, using AI to understand dietary restrictions and preferences. Users can like, share, and even try to build their own versions.',  
@@ -44,7 +44,7 @@ const ideaItems: FeedItem[] = [
     {
     type: 'idea',
     data:{
-    
+        id: "2",
         title: "Collaborative story writing platform",
         author: {name: "StorySpinner",level: 3, avatarUrl: "https://i.pravatar.cc/150?u=storyspinner"},
         description: 'A website where users can start a story and others can contribute paragraphs or chapters , Implement version control for different story branches and a voting system for the best contributions.',  
@@ -59,12 +59,12 @@ const ideaItems: FeedItem[] = [
     {
     type: 'idea',
     data:{
-      
+        id: "3",
         title: "Local Event Finder app with AR features",
         author: {name: "ARExplorer",level: 12, avatarUrl: "https://i.pravatar.cc/150?u=arexplorer"},
         description: 'A mobile app that helps users discover local events (concerts , meetups , workshops) and uses Augmented Reality to show event details when pointing the camera at venues.',  
         tags: ['#AR','#localisation','meetups'],
-        imageUrl: 'https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=2062',
+        imageUrl: 'https://images.unsplash.com/photo-2511578314322-379afb476865?q=80&w=2062',
         stats :{likes:110 , comments: 20,forks: 2},
         date: 'Jul 5 , 2025',
         readTime: '12m read',  
