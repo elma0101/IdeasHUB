@@ -1,6 +1,6 @@
 import React from 'react';
 import type  { FeedItem } from '../../lib/mockData'; // Import our new union type
-import { IdeaCard } from './ideaCard';
+import { IdeaCard } from './IdeaCard';
 import { PromotedCard } from './PromotedCard';
 
 interface IdeaFeedProps {

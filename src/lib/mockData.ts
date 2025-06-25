@@ -1,4 +1,4 @@
-import type { IdeaCardProps } from '../components/idea/ideaCard';
+import type { IdeaCardProps } from '../components/idea/IdeaCard';
 import type { PromotedCardProps } from '../components/idea/PromotedCard';
 
 
