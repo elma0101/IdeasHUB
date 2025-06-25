@@ -1,5 +1,6 @@
-import React from 'react';
+import React , { useState } from 'react';
 import { BiLike, BiComment, BiGitRepoForked, BiBookmark } from 'react-icons/bi';
+
 
 export interface IdeaCardProps {
   author: { name: string; level: number; avatarUrl: string };
