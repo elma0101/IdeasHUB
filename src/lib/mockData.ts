@@ -64,7 +64,7 @@ const ideaItems: FeedItem[] = [
         author: {name: "ARExplorer",level: 12, avatarUrl: "https://i.pravatar.cc/150?u=arexplorer"},
         description: 'A mobile app that helps users discover local events (concerts , meetups , workshops) and uses Augmented Reality to show event details when pointing the camera at venues.',  
         tags: ['#AR','#localisation','meetups'],
-        imageUrl: 'https://images.unsplash.com/photo-2511578314322-379afb476865?q=80&w=2062',
+        imageUrl: 'https://images.unsplash.com/photo-1531058020387-3be344556be6?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
         stats :{likes:110 , comments: 20,forks: 2},
         date: 'Jul 5 , 2025',
         readTime: '12m read',  

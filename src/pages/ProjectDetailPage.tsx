@@ -1,27 +1,39 @@
 
-import { useParams } from 'react-router-dom';
-import { mockFeedItems } from '../lib/mockData';
+import { useParams, Link } from 'react-router-dom';
+import type {  FeedItem } from '../lib/mockData';
 import { BiLogoTwitter, BiLogoGithub, BiLink } from 'react-icons/bi';
 
 // A simple header for this page
-const DetailPageHeader = () => (
-  <header className="flex justify-between items-center p-6 border-b border-gray-700">
-    <h1 className="text-xl font-bold">IdeasHub</h1>
-    <nav className="flex items-center gap-6">
-      <a href="#" className="hover:text-white">Home</a>
-      <a href="#" className="hover:text-white">Explore</a>
-      <a href="#" className="bg-white text-black font-semibold px-4 py-2 rounded-md">Create</a>
+const DetailPageHeader = () => {
+  const { id } = useParams();
+  return (
+    <header className="flex justify-between items-center p-6 border-b border-gray-700">
+      <h1 className="text-xl font-bold"> <Link to="/" className="hover:text-white transition-colors"> IdeasHub </Link> </h1>
+      <nav className="flex items-center gap-6">
+        <a href="#" className="hover:text-white">Home</a>
+        <a href="#" className="hover:text-white">Explore</a>
+        <Link to={`/project/${id}/edit`}>
+              <button className="bg-white text-black font-semibold px-4 py-2 rounded-md">
+                Edit
+              </button>
+          </Link>
       <div className="w-8 h-8 bg-gray-600 rounded-full"></div> {/* Placeholder for user avatar */}
     </nav>
   </header>
-);
+  );
+};
 
-export const ProjectDetailPage = () => {
-  // Get the 'id' from the URL, e.g., "/project/1" -> id is "1"
+// --- NEW PROPS ---
+interface ProjectDetailPageProps {
+  items: FeedItem[];
+}
+
+export const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ items }) => {
   const { id } = useParams();
   
-  // Find the project data from our mock array
-  const project = mockFeedItems.find(
+  
+  // --- USE THE PASSED-DOWN 'items' PROP ---
+  const project = items.find(
     (item) => item.type === 'idea' && item.data.id === id
   );
 
@@ -37,7 +49,7 @@ export const ProjectDetailPage = () => {
       <main className="max-w-4xl mx-auto p-8">
         {/* Top Section */}
         <section>
-          <h2 className="text-3xl font-bold text-white">Project Details</h2>
+          <h2 className="text-3xl font-bold text-white">Project Details</h2>  
           <p className="mt-2">Explore the intricacies of this innovative project, its creators, and contributors.</p>
           <div className="mt-8 flex gap-8 items-center bg-gray-800 p-6 rounded-lg">
             <img src={data.imageUrl} alt={data.title} className="w-1/3 h-auto rounded-md object-cover" />

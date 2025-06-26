@@ -1,6 +1,7 @@
 import React from 'react';
-// Import all the icons we'll need from react-icons
+import { Link } from 'react-router-dom';
 import { BiCompass, BiFile, BiGroup, BiBarChartAlt2, BiBookmark, BiPlusCircle, BiCog } from 'react-icons/bi';
+
 
 // A small, reusable component for our icons
 const SidebarIcon = ({ icon, text }: { icon: React.ReactNode, text: string }) => (
@@ -21,7 +22,7 @@ export const Sidebar = () => {
       <div className="flex-grow">
         {/* Logo Placeholder */}
         <div className="h-12 w-12 mt-3 mb-2 mx-auto flex items-center justify-center font-bold text-lg bg-card rounded-xl">
-          CP
+          IH
         </div>
         <hr className="border-t border-border-color w-10 mx-auto" />
 
@@ -29,20 +30,26 @@ export const Sidebar = () => {
         <SidebarIcon icon={<BiFile size="28" />} text="Trending 🔥" />
         <SidebarIcon icon={<BiGroup size="28" />} text="Community" />
         <SidebarIcon icon={<BiBarChartAlt2 size="28" />} text="Stats" />
-        <SidebarIcon icon={<BiBookmark size="28" />} text="Bookmarks" />
+        <Link to="/bookmarks">
+          <SidebarIcon icon={<BiBookmark size="28" />} text="Bookmarks" />
+        </Link>
       </div>
 
       {/* Bottom Section: Actions and User Profile */}
       <div className="mb-4">
-        <SidebarIcon icon={<BiPlusCircle size="28" />} text="Add Idea" />
+        <Link to="/create"> {/* <-- WRAP THE ICON */}
+          <SidebarIcon icon={<BiPlusCircle size="28" />} text="Add Idea" />
+        </Link>
         <SidebarIcon icon={<BiCog size="28" />} text="Settings" />
         {/* User Avatar Placeholder */}
         <div className="mt-2 mx-auto flex items-center justify-center">
+          <Link to="/profile" >
           <img 
             src="https://i.pravatar.cc/150?u=currentuser" 
             alt="User Avatar" 
             className="h-12 w-12 rounded-full cursor-pointer"
           />
+          </Link>
         </div>
       </div>
     </div>
