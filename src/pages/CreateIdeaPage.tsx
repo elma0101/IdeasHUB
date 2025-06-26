@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import {  useParams } from 'react-router-dom';
 import type { FeedItem } from '../lib/mockData';
 import { Link } from 'react-router-dom';
 
@@ -47,7 +47,7 @@ const FormTextarea = ({ label, ...props }: { label: string, [key: string]: any }
 // --- MAIN PAGE COMPONENT (CORRECTED) ---
 export const CreateIdeaPage: React.FC<CreateIdeaPageProps> = ({ onFormSubmit, items = [], isEditMode }) => {
   const { id } = useParams();
-  const navigate = useNavigate();
+   
 
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
